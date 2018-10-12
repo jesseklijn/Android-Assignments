@@ -1,24 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="13dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/_highscore"
+        android:layout_width="158dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="400dp"
+        android:layout_marginEnd="200dp"
         android:layout_marginTop="8dp"
-        android:text="Hello World!"
+        android:text="@string/highscore"
+        android:textAlignment="viewStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/_currentScore" />
+
+    <TextView
+        android:id="@+id/_currentScore"
+        android:layout_width="158dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/score"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/_history"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:headerDividersEnabled="false"
+        app:layout_constraintBottom_toTopOf="@+id/_diceView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_highscore" />
+
+    <ImageView
+        android:id="@+id/_diceView"
+        android:layout_width="140dp"
+        android:layout_height="139dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/_upperButton"
+        app:layout_constraintStart_toEndOf="@+id/_lowerButton"
+        app:layout_constraintTop_toBottomOf="@+id/_history"
+        app:srcCompat="@drawable/d1"
+        android:contentDescription="@string/todo" />
+
+    <Button
+        android:id="@+id/_upperButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/arrow_up_float"
+        android:onClick="upperButtonOnClick"
+        android:text="@string/upperButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/_diceView"
+        app:layout_constraintTop_toBottomOf="@+id/_history" />
+
+    <Button
+        android:id="@+id/_lowerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/arrow_down_float"
+        android:onClick="lowerButtonOnClick"
+        android:text="@string/lowerButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/_diceView"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_history" />
 
 </android.support.constraint.ConstraintLayout>

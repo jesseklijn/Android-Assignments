@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidAssignments</string>
+    <string name="highscore">Highscore:</string>
+    <string name="score">Score:</string>
+    <string name="lowerButton"></string>
+    <string name="upperButton"></string>
+    <string name="todo">TODO</string>
 </resources>
