@@ -4,10 +4,15 @@ import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 class Dice {
@@ -28,16 +33,20 @@ public class MainActivity extends AppCompatActivity {
     //View components
     TextView currentScoreText;
     TextView highscoreText;
+    TextView conclusionText;
     ImageView diceImageView;
     Button lowerButton;
     Button upperButton;
+    ListView listView;
+    ArrayList arrayList;
+    ArrayAdapter<String> adapter;
+
 
     //Fields
     Dice diceInstance;
     Random randomInstance;
     int currentScore = 0;
     int highscore = 0;
-    int rolledNumber = 0;
     Choice prediction = Choice.lower;
 
     int[] diceImages = new int[6];
@@ -63,9 +72,20 @@ public class MainActivity extends AppCompatActivity {
         //Get ui components by id
         currentScoreText = findViewById(R.id._currentScore);
         highscoreText = findViewById(R.id._highscore);
+        conclusionText = findViewById(R.id.conclusionText);
         diceImageView = findViewById(R.id._diceView);
         lowerButton = findViewById(R.id._lowerButton);
         upperButton = findViewById(R.id._upperButton);
+        listView = findViewById(R.id._history);
+
+        arrayList = new ArrayList<String>();
+
+        // Adapter: You need three parameters 'the context, id of the layout (it will be where the data is shown),
+        // and the array that contains the data
+        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, arrayList);
+
+        // Here, you set the data in your ListView
+        listView.setAdapter(adapter);
 
 
     }
@@ -108,12 +128,17 @@ public class MainActivity extends AppCompatActivity {
                 currentScore++;
                 if(currentScore > highscore) {
                     highscore++;
+                    conclusionText.setText("You won, new highscore!("+highscore+")");
                 }
+                else{
+                    conclusionText.setText("You won!");
+                }
+
             }
             else{
                 //Lose points
-
                 currentScore = 0;
+                conclusionText.setText("You lost!");
             }
         }
         else if(prediction == Choice.higher){
@@ -122,13 +147,21 @@ public class MainActivity extends AppCompatActivity {
                 currentScore++;
                 if(currentScore > highscore) {
                     highscore++;
+                    conclusionText.setText("You won, new highscore!("+highscore+")");
                 }
+                else{
+                    conclusionText.setText("You won!");
+                }
+
             }
             else{
                 //Lose points
                 currentScore = 0;
+                conclusionText.setText("You lost!");
             }
         }
+        //Add to the history throw list
+        arrayList.add("Throw is: "+(rolledDice+1));
         diceInstance.value = rolledDice;
         //Show dice image
         updateUI();
@@ -140,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
         currentScoreText.setText("Score: " + currentScore);
         highscoreText.setText("highscore: " + highscore);
 
+        adapter.notifyDataSetChanged();
     }
 
 
