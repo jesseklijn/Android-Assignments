@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidAssignments</string>
+    <string name="currentQuestion">1/8</string>
+    <string name="todo">TODO</string>
 </resources>

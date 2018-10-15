@@ -7,18 +7,75 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="13dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Hello World!"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="289dp"
+        android:layout_height="418dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="3dp"
+        android:contentDescription="@string/todo"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Quiz_Question"
+        app:srcCompat="@drawable/img1_yes_denmark" />
 
+    <TextView
+        android:id="@+id/CurrentQuestionLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="475dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="17dp"
+        android:fontFamily="serif"
+        android:text="@string/currentQuestion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Quiz_Question"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Quiz_Question"
+        android:layout_width="289dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="47dp"
+        android:layout_marginStart="11dp"
+        android:fontFamily="serif"
+        android:text="Europe or not Europe? Swipe left for Europe, swipe right for other than europe!"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/CurrentQuestionLbl"
+        app:layout_constraintTop_toBottomOf="@+id/Geolabel" />
+
+    <TextView
+        android:id="@+id/Geolabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="217dp"
+        android:layout_marginStart="48dp"
+        android:fontFamily="monospace"
+        android:text="GEO SWIPE QUIZ"
+        app:layout_constraintBottom_toTopOf="@+id/Quiz_Question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/RetryBtn"
+        android:layout_width="80dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginStart="152dp"
+        android:text="Retry?"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 </android.support.constraint.ConstraintLayout>
