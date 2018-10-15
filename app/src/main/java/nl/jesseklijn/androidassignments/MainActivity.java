@@ -79,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
     Button retryButton;
     Quiz quiz;
 
+    public void onRetryClick(View view){
+        quiz = new Quiz();
+        retryButton.setVisibility(View.GONE);
+        updateUI(true);
+    }
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,9 +138,5 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onRetryClick(){
-        //quiz = new Quiz();
-        retryButton.setVisibility(View.GONE);
-        updateUI(true);
-    }
+
 }
