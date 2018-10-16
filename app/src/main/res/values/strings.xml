@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidAssignments</string>
+    <string name="title_activity_web_portal">WebPortalActivity</string>
+    <string name="title_activity_add_portal">AddPortalActivity</string>
+    <string name="url">URL</string>
+    <string name="portal_title">Portal Title</string>
+    <string name="add_portal">ADD PORTAL</string>
 </resources>
