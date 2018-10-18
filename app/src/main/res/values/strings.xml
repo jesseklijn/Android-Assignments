@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">AndroidAssignments</string>
+    <string name="title_activity_add_game">AddGame</string>
+    <string name="platform">Platform</string>
+    <string name="game_title">Game Title</string>
+    <string name="playing">Playing</string>
+    <string name="date">Date</string>
+    <string-array name="Status_array">
+        <item>Want to play</item>
+        <item>Playing</item>
+        <item>Stalled</item>
+        <item>Droppd</item>
+    </string-array>
+
 </resources>
