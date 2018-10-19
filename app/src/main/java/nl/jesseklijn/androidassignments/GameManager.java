@@ -37,6 +37,9 @@ public class GameManager {
     Boolean isEditing = false;
     public void init(Context context){
         gameList = loadManager(context);
+        if(gameList == null){
+            gameList = new ArrayList<Game>();
+        }
 
     }
 
